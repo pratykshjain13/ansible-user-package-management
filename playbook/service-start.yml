@@ -1,0 +1,11 @@
+---
+- name: Service Management on Managed Nodes
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: started
+        enabled: yes

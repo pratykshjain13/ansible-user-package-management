@@ -1,0 +1,39 @@
+---
+- name: user and groups
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: creating group
+      group:
+        name: devops
+        state: present
+
+    - name: creating user
+      user:
+        name: rahul
+        group: devops
+        create_home: yes
+        state: present
+
+    - name: create developers group
+      group:
+        name: developers
+        state: present
+
+    - name: add rahul to developers group
+      user:
+        name: rahul
+        group: devops,developers
+        append: yes
+        state: present
+
+    - name: create project directory
+      file:
+        path: /opt/devops-project
+        state: present
+        owner: rahul
+        group: devops
+        mode: '0775'
+
+
+
