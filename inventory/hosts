@@ -1,0 +1,6 @@
+[webservers]
+node1
+node2
+
+[webservers:vars]
+ansible_user=root

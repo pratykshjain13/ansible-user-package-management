@@ -1,4 +1,4 @@
-inventory/hosts
+
 *.retry
 .vault_pass
 *.pem
